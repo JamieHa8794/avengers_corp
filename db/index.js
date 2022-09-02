@@ -32,6 +32,19 @@ const syncAndSeed = async () =>{
         const [Evil, Good, Neutral] = await Promise.all(
             ['Evil', 'Good', 'Neutral'].map( team => Team.create({ name: team }))
         )
+        IronMan.teamId = Good.id;
+        Loki.teamId = Evil.id;
+        Thor.teamId = Good.id;
+        CaptinAmerica.teamId = Good.id;
+        Hulk.teamId = Neutral.id;
+        Thanos.teamId = Evil.id;
+        Ultron.teamId = Evil.id;
+        Wanda.teamId = Evil.id;
+
+        await Promise.all([
+            IronMan.save(), Loki.save(), Thor.save(), CaptinAmerica.save(), Hulk.save(), Thanos.save(), Ultron.save(), Wanda.save()
+        ])
+
     }
     catch(err){
         console.log(err);
@@ -43,6 +56,7 @@ const syncAndSeed = async () =>{
 module.exports = {
     syncAndSeed,
     models : {
-
+        Hero,
+        Team
     }
 }
