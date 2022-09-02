@@ -27,7 +27,7 @@ const syncAndSeed = async () =>{
     try{
         await db.sync({ force: true })
         const [IronMan, Loki, Thor, CaptinAmerica, Hulk, Thanos, Ultron, Wanda ] = await Promise.all(
-            ['IronMan', 'Loki', 'Thor', 'CaptinAmerica', 'Hulk', 'Thanos', 'Ultron', 'Wanda'].map( hero => Hero.create({ name: hero }))
+            ['Iron Man', 'Loki', 'Thor', 'Captin America', 'Hulk', 'Thanos', 'Ultron', 'Wanda'].map( hero => Hero.create({ name: hero }))
         )
         const [Evil, Good, Neutral] = await Promise.all(
             ['Evil', 'Good', 'Neutral'].map( team => Team.create({ name: team }))
@@ -40,6 +40,8 @@ const syncAndSeed = async () =>{
         Thanos.teamId = Evil.id;
         Ultron.teamId = Evil.id;
         Wanda.teamId = Evil.id;
+
+
 
         await Promise.all([
             IronMan.save(), Loki.save(), Thor.save(), CaptinAmerica.save(), Hulk.save(), Thanos.save(), Ultron.save(), Wanda.save()
