@@ -29,6 +29,7 @@ app.get('/', async (req, res, next)=>{
         <body>
                 ${teams.map(team =>{
                     return(`
+                        <div class='team-block'>
                         <h1>
                             ${team.name}
                         </h1>
@@ -41,6 +42,7 @@ app.get('/', async (req, res, next)=>{
                             `)
                         }).join('')}
                         </ul>
+                        </div>
                     `)
                 }).join('')}
         </body>

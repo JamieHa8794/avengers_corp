@@ -42,7 +42,6 @@ const syncAndSeed = async () =>{
         Wanda.teamId = Evil.id;
 
 
-
         await Promise.all([
             IronMan.save(), Loki.save(), Thor.save(), CaptinAmerica.save(), Hulk.save(), Thanos.save(), Ultron.save(), Wanda.save()
         ])
