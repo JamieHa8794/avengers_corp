@@ -38,6 +38,22 @@ app.get('/', async (req, res, next)=>{
                             return(`
                             <li>
                             ${hero.name}
+                            <form>
+                            <select>
+                                ${teams.map(team =>{
+                                    return(`
+                                        
+                                            <option>
+                                                ${team.name}   
+                                            </option>
+                                            
+                                            `)
+                                })}
+                                </select>
+                                <button>
+                                    Change Teams
+                                </button>
+                            </form>
                             </li>
                             `)
                         }).join('')}
